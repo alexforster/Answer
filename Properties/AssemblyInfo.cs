@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("1.0.2.13291")]
+[assembly: AssemblyVersion("1.0.3.13291")]
 
 #if DEBUG
 [assembly: AssemblyConfiguration( "Debug" )]

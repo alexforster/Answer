@@ -36,7 +36,7 @@
 		{
 			var sb = new StringBuilder( this.Name + " " + this.Value );
 
-			sb.Insert( 0, "\t", this.Depth );
+			sb.Insert( 0, "    ", this.Depth );
 
 			foreach( var child in this.Children )
 			{

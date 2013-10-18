@@ -31,9 +31,9 @@
 			// skip comments
 
 			if( String.IsNullOrEmpty( rawLine ) ||
-				rawLine.TrimStart( ' ', '	' ).StartsWith( "!" ) ||
-				rawLine.TrimStart( ' ', '	' ).StartsWith( "#" ) ||
-				rawLine.TrimStart( ' ', '	' ).StartsWith( "//" ) )
+				rawLine.TrimStart( ' ', '\t' ).StartsWith( "!" ) ||
+				rawLine.TrimStart( ' ', '\t' ).StartsWith( "#" ) ||
+				rawLine.TrimStart( ' ', '\t' ).StartsWith( "//" ) )
 			{
 				return;
 			}
@@ -75,7 +75,7 @@
 
 			if( this.IndentationStyle == TabsOrSpaces.None )
 			{
-				if( indent.Contains( "	" ) )
+				if( indent.Contains( "\t" ) )
 				{
 					this.IndentationStyle = TabsOrSpaces.Tabs;
 				}
@@ -85,7 +85,7 @@
 				}
 			}
 
-			if( indent.Contains( "	" ) && this.IndentationStyle != TabsOrSpaces.Tabs )
+			if( indent.Contains( "\t" ) && this.IndentationStyle != TabsOrSpaces.Tabs )
 			{
 				throw new ArgumentException( "Encountered a tab-indent while in space-indent mode.", "rawLine" );
 			}
@@ -174,6 +174,7 @@
 			foreach( var answer in this.Answers )
 			{
 				sb.AppendLine( answer.Serialize() );
+				sb.AppendLine();
 			}
 
 			return sb.ToString();
